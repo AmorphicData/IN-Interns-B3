@@ -1,4 +1,4 @@
-# CW/IN/BLR/ADC/Interns
+# CW / IN / BLR / ADC / Interns
 --------
 
 Repository for the Internship batch-3.
