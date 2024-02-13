@@ -9,7 +9,7 @@ git checkout $main
 git pull origin $main
 prefix="origin/"
 
-file="$1"
+file="$2"
 if [ -s "$file" ];
 then
 	echo "List of branches:"
@@ -21,65 +21,37 @@ else
 	git branch -r
 fi
 
-#Creation of a array for valid branches only!
+#Creation of a array for valid branches only
 branches_array=()
-echo "Validating from remote branches...."
+echo "Validating....."
 for i in $(git branch -r);
 do
 	branch="${i#$prefix}"
 	if grep -q -e "$branch" "$file";
         then
-		echo "Branch $branch found in remote"
+		echo "Branch $branch located! Adding to the array."
 		branches_array+=("$branch")
 	fi
 done
 
-read -p "Check for updates?(yes/no):" flag
-case $flag in
-	"yes")	
-		echo "Checking for updates in valid branches...."
-        	for branch in "${branches_array[@]}";
-        	do
-			echo "Checking branch: $branch"
-            		git checkout "$branch" 2>/dev/null
-      			upstream=$(git rev-parse --abbrev-ref --symbolic-full-name "$branch@{upstream}" 2>/dev/null)
-      			if [ -n "$upstream" ]; then
-        			if git merge-base --is-ancestor "$upstream" "$branch"; then
-					echo "========================="
-        			else
-					echo "========================="
-        			fi
-      			else
-        			echo "The branch '$branch' doesn't have any commits ahead."
-      			fi
-    		done
-	;;
-	"no")
-		echo "Exiting now."
-		exit
-	;;
-	*)
-		echo "Wrong input. Exiting!"
-	;;
-esac
-
-read -p "Want to continue merge into main(yes/no):" chk
+read -p "Want to continue updation with the $main(yes/no):" chk
 case $chk in
 	"yes")
 		for branch in "${branches_array[@]}";
 		do
-			echo "Merging branch $branch"
-			git checkout $main
-			git merge -X theirs -m "Merging branch $branch in main" $branch
-			sleep 5
+  			echo "Merging main in branch $branch"
+			git checkout $branch
+			git merge -X ours -m "Merged main into $branch" $main
+			git push origin $branch
+   			sleep 5
 		done
 		;;
 	"no")
-		echo "Exiting!"
+		echo "!"
 		exit
 		;;
 	*)
-		echo "Wrong Input! Exiting!"
+		echo "Wrong Input"
 		exit
 		;;
 esac
