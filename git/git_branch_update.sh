@@ -5,13 +5,13 @@
 
 echo "Welcome to the Git Branch Updater Script"
 
-# Define master branch (hardcoded)
+# Define master branch 
 master_branch="main"
 
-# checkout master branch, pull latest changes, prune-branches
+# checkout master branch, pull latest changes
 git checkout $master_branch
 git pull origin $master_branch
-git remote prune origin
+
 
 # Function to trim whitespaces from start and end of branch names
 trim() {
@@ -39,15 +39,16 @@ else
 fi
 
 # Verify the remote has all the branches exist from the branches list
-valid_branches=""
+valid_branches=()
 for branch in $branches; do
     branch=$(trim "$branch")
-    if git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
-        valid_branches="$valid_branches $branch"
+    if git show-ref "refs/remotes/origin/$branch" >/dev/null; then
+        valid_branches+=("$branch")
     else
         echo "Branch $branch does not exist in remote repository."
     fi
 done
+ 
 
 # Show user the valid branches going to be updated
 echo "The following branches will be updated:"
@@ -60,15 +61,17 @@ if [ -z "$valid_branches" ]; then
 fi
 
 # Ask user input to confirm the update
-read -p "Do you want to proceed with updating these branches? (y/n): " confirm
+read -p "Do you want to proceed with updating these branches? (yes/no): " confirm
 
 # If yes, update each branch with the master branch
-if [ "$confirm" == "y" ] || [ "$confirm" == "Y" ]; then
+if [ "$confirm" == "yes" ]; then
     for branch in $valid_branches; do
         echo "Updating branch $branch..."
         git checkout $branch
         git pull origin $master_branch
+        git merge -X ours origin $master_branch
         sleep 5
+        
         if [ $? -ne 0 ]; then
             echo "Failed to update branch $branch. Exiting..."
             exit 1
