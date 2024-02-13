@@ -1,0 +1,59 @@
+List Operations:
+
+Write a Python program to:
+
+Create a list of integers.
+Add an element to the end of the list.
+Remove the third element from the list.
+Sort the list in ascending order.
+Find the sum of all elements in the list.
+
+String Operations:
+
+Write a Python program to:
+
+Create a string and print its length.
+Convert the string to uppercase.
+Check if the string contains only alphabets.
+Split the string into a list of words.
+Replace a specific word in the string with another word.
+
+Dictionary Operations:
+
+Write a Python program to:
+
+Create a dictionary with student names as keys and their scores as values.
+Add a new student and score to the dictionary.
+Remove a student from the dictionary.
+Check if a student is present in the dictionary.
+Print all keys and values in the dictionary.
+
+Tuple Operations:
+
+Write a Python program to:
+
+Create a tuple of strings.
+Concatenate two tuples.
+Find the index of a specific element in the tuple.
+Count the occurrences of a particular element in the tuple.
+Slice the tuple and print a subset of elements.
+
+Set Operations:
+
+Write a Python program to:
+
+Create two sets of integers.
+Find the union, intersection, and difference of the two sets.
+Check if one set is a subset of another.
+Add and remove elements from a set.
+Find the length of a set.
+
+Operations on Frozensets:
+
+Write a Python program to:
+
+Create two frozensets with some common elements.
+Find the union of the two frozensets.
+Find the intersection of the two frozensets.
+Find the difference between the two frozensets.
+Check if one frozenset is a subset of another.
