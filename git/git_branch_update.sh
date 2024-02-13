@@ -1,7 +1,7 @@
 #!/bin/bash
-# Author Name: Susheel Pogaku
+# Author Name: praneeth miryanam
 # Publish Date: May 30, 2023
-# Last Updated: Feb 12, 2024
+# Last Updated: Feb 13, 2024
 
 echo "Welcome to the Git Branch Updater Script"
 
