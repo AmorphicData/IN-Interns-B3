@@ -1,5 +1,5 @@
 #!/bin/bash
-#Author Name: Rounak Chauhan
+#Author Name: Nayan Sachan
 #Publish Date: Feb 11, 2024
 #Last Updated: Feb 14, 2024
 #Master branch name hardcoded.
