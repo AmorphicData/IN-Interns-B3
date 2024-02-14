@@ -68,14 +68,20 @@ if [ "$confirm" == "yes" ]; then
     for branch in $valid_branches; do
         echo "Updating branch $branch..."
         git checkout $branch
-        git pull origin $master_branch
-        git merge -X ours origin $master_branch
-        sleep 5
+        git pull -X ours origin $master_branch
+        if [ $? -ne 0 ]; then
+            echo "Failed to update branch $branch. Exiting..."
+            exit 1
+        fi
+        git push origin $branch
+      
+        
         
         if [ $? -ne 0 ]; then
             echo "Failed to update branch $branch. Exiting..."
             exit 1
         fi
+        sleep 5
     done
     echo "All branches updated successfully."
 else
