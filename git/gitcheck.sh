@@ -1,7 +1,7 @@
 #!/bin/bash
 #Author Name: Tarun Adhikari
 #Publish Date: Feb 11, 2024
-#Last Updated: Feb 12, 2024
+#Last Updated: Feb 14, 2024
 
 #Master branch name hardcoded.
 main="main"
