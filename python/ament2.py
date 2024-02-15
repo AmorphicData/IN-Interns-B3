@@ -125,7 +125,7 @@ def multiple(lst,a,b):
         print('Error ',e)
 
 lst=[1,2,3,4]
-multiple(lst,5,0)'''
+multiple(lst,5,0)
 year=int(input())
 month =int(input())
 mon31=[1,3,5,7,8,10,12]
@@ -150,7 +150,7 @@ elif(month==2):
         print(28)
 else:
     print(30)
-'''a=int(input())
+a=int(input())
 (print('Positive and even')if(a%2==0)else('Positive and odd'))if(a>0)else(print('negative and even')if(a%2==0)else('negative and odd'))
 b=[1,2,[1,2,3]]
 a=copy.copy(b)
@@ -159,6 +159,7 @@ print(id(a))
 b.append(4)
 print(a)
 print(b)'''
+
 
 
 
