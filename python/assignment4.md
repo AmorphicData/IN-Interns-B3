@@ -1,9 +1,9 @@
-Programs involving loops (Min 5 from below)
-Write a program that reads a string (paragraph) and performs various text analysis tasks such as counting the number of words, counting the frequency of each word, finding the longest word, etc.
-Write a program that generates random passwords of a given length using uppercase letters, lowercase letters, numbers, and special characters
-Write a program that generates a calendar for a specified month and year.
-Write a program that takes a list of integers as input and identifies any repeating patterns within the list. E.g., given the input [1, 2, 3, 1, 2, 3, 1, 2, 3, 4, 5, 1, 2, 3], the program should identify the pattern [1, 2, 3] repeating multiple times.
-Write a program that generates a random number between 1 and 100 and prompts the user to guess the number. The program should provide feedback on whether the guess is too high or too low and allow the user to continue guessing until they either guess the correct number or exceed a certain number of attempts.
-Write a simple calculator program that takes user input for arithmetic operations (+, -, *, /) and performs the calculations. Use loop to continuously prompt the user for input until they choose to exit the program, and include error handling to handle invalid inputs
-Write a program that simulates a banking system where users can deposit, withdraw, and transfer funds between accounts. Use loop to continuously prompt the user for actions until they choose to exit.
-Create a program that manages inventory for a store. Use loop to continuously prompt the user for actions such as adding, updating, or removing items from the inventory.
+## Programs involving loops (Min 5 from below)
+ - Write a program that reads a string (paragraph) and performs various text analysis tasks such as counting the number of words, counting the frequency of each word, finding the longest word, etc.
+ - Write a program that generates random passwords of a given length using uppercase letters, lowercase letters, numbers, and special characters
+ - Write a program that generates a calendar for a specified month and year. 
+ - Write a program that takes a list of integers as input and identifies any repeating patterns within the list. E.g., given the input [1, 2, 3, 1, 2, 3, 1, 2, 3, 4, 5, 1, 2, 3], the program should identify the pattern [1, 2, 3] repeating multiple times.
+ - Write a program that generates a random number between 1 and 100 and prompts the user to guess the number. The program should provide feedback on whether the guess is too high or too low and allow the user to continue guessing until they either guess the correct number or exceed a certain number of attempts.
+ - Write a simple calculator program that takes user input for arithmetic operations (+, -, *, /) and performs the calculations. Use loop to continuously prompt the user for input until they choose to exit the program, and include error handling to handle invalid inputs
+ - Write a program that simulates a banking system where users can deposit, withdraw, and transfer funds between accounts. Use loop to continuously prompt the user for actions until they choose to exit.
+ - Create a program that manages inventory for a store. Use loop to continuously prompt the user for actions such as adding, updating, or removing items from the inventory.
