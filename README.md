@@ -8,6 +8,7 @@ Submissions of project work, assignments, design and development material must b
 
 | Topic | Instructions | Last Updated |
 | ------------- |:-------------:| -----|
+| Python | [assignment-5](./python/assignment5.md) | Feb 16, 2024 |
 | Python | [assignment-4](./python/assignment4.md) | Feb 15, 2024 |
 | Linux & Git | [pre-commit-hook](./git/assignment-3.md) | Feb 14, 2024 |
 | Linux & Git | [auto-backup-script](./git/assignment-2.md) | Feb 14, 2024 |
