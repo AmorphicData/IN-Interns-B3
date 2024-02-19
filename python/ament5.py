@@ -50,7 +50,17 @@ print(r1)
 #[10, 9, 7, 78]
 '''
 #Q-5
-
+'''ls=[1,2,3,5,6]
+def fun(n):
+    return n*n
+ir=list(map(fun,ls))
+def fun1(n):
+    if(n>0):
+        return True
+ir2=list(filter(fun1,ir))
+print(ir2)
+r=reduce(lambda x,y:x+y,ir2,0)
+print(r)'''
 #Q-6
 '''ts1=input().split(',')
 ts2=input().split(',')
@@ -83,12 +93,11 @@ print(fs)'''
     
 #Q-8
 '''def read_large_file(sample):
-    try:
+   
         with open(sample, 'r') as file:
             for line in file:
                 yield line.strip('\n')
-    except FileNotFoundError:
-        pass
+    
 
 gen=read_large_file("sample.txt")
 print(next(gen))'''
@@ -190,7 +199,19 @@ def reduc(n1,n2,n3=0):
     return s
 l=[1,2,4]
 print(reduce(fun,l,1))'''
+###############################
     
+l=[1,2,3,4,5,6,6,43,234,4,234]
+def ise(l):
+    for n in l:
+     if(n%2==0):
+        yield n
+gen=ise(l)
+print(next(gen))
+it=iter(gen)
+print(next(it))    
+
+
 
         
 
