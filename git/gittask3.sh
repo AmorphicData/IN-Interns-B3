@@ -1,5 +1,5 @@
 #!/bin/bash
-#Author Name:
+#Author Name:Saksham Dhillon
 #Publish Date: 14 feb 2024
 #Last Updated: 18 feb 2024
 exec < /dev/tty ## helps in forcing the script to take keyboard input
