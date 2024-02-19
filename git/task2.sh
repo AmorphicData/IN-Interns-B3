@@ -35,3 +35,5 @@ fi
 git -C “$BACKUP_DIR” add .
 git -C “$BACKUP_DIR” commit -m “Automated backup changes”
 git -C “$BACKUP_DIR” push -u origin “$BRANCH_NAME”
+
+#crontab -  */5 * * * * /bin/bash /Users/harshini/documents/backup_script.sh
