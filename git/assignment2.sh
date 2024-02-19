@@ -1,70 +1,58 @@
-#!/bin/bash
+#./bin/bash
+#Author Name: Nayan Sachan
+#Publish Date: 14 Feb 2024
+#Last Updated: 16 Feb 2024
 
-# Author Name: Nayan Sachan
-# Publish Date: 14 Feb 2024
-# Last Updated: 17 Feb 2024
-
-backup_git="your_backup_repo_link"
-source_main=main
+backup_dir=bkdir
 source_dir=test
+source_main=main
 backup_main=main
-backup_dir=bkp_dir
-
-# Function to check if directory exists
-check_Source_directory() {
-    if [ ! -d "$1" ]; then
-        echo "$2 Directory does not exist."
-        exit 1
-    else
-        echo "$2 Directory exists."
-    fi
-}
-
-check_Backup_directory(){
-   if [ ! -d "$1" ]; then
-      mkdir -p "$1"
-      cd "$1"
-      git clone "$backup_git"
-      echo "Created $2 directory as it doesn't exist"
-      cd ..
-   else
-      echo "$2 Directory exists"
-   fi
-}
-
-# Function to perform backup
-perform_backup() {
-    cd "$source_dir"
-    git pull origin "$source_main"
-
-    # Checking for changed files
-    changed_files=($(git diff --name-only main origin/main))
-    if [ ${#changed_files[@]} -eq 0 ]; then
-        echo "No files changed."
-    else
-        # Pull changes from source
-        git pull -X theirs origin "$source_main"
-        cd ..
-        # Copy the changes from source directory to backup directory
-        for file in "${changed_files[@]}"; do
-            cp "$source_dir/$file" "$backup_dir/$backup_git"
-        done
-        cd "$backup_dir"/$backup_git
-        for file in "${changed_files[@]}"; do
-            git add "$file"
-        done
-        git commit -m "Cloned from Source directory"
-        git push origin "$backup_main"
-        cd ..
-        cd ..
-    fi
+#check for source dir
+if [ ! -d "$source_dir" ];then
+    echo "Source Direcotry does not exists"
+    exit 1
+else:
+    echo "Source Directory Exists"
+fi
+#check for backup dir
+if [ ! -d "$backup_dir" ]; then
+    mkdir -p "$backup_dir"
+    cd "$backup_dir"
+    git clone "$backup_git"
+    echo "Backup directory does n't exists but created"
     cd ..
-}
+else
+    echo "Backup Directory exisits"
+fi
 
-check_Source_directory "$source_dir" "Source"
-check_Backup_directory "$backup_dir" "Backup"
+#check for changed files
+cd "$source_dir"
+git pull origin "$source_main"
+# now i have to check for changed files
+changed_files=($(git diff --name-only main origin/main))
+if [ ${#changed_files[@]} -eq 0 ];then
+    echo "No files Changed"
+else
+    #pull changes from source
+    git pull -X theirs origin "$source_main"
+    cd ..
+    #copy the changes from src_dir to backup_dir
+    for file in "${changed_files[@]}";do
+        cp "$source_dir/$file" "$backup_dir/backup_git"
+    done
+    cd "$backup_dir"/backup_git
+    for file in "${changed_files[@]}"; do
+        git add "$file"
+    done
+    git commit -m "Cloned from Source dir"
+    git push origin "$backup_main"
+    cd ..
+    cd ..
+fi
+cd ..
 
-perform_backup
 
-# crontab command
+
+#crontab command 
+
 # */5 * * * * assignment2.sh
