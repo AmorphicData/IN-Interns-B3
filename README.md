@@ -8,6 +8,7 @@ Submissions of project work, assignments, design and development material must b
 
 | Topic | Instructions | Last Updated |
 | ------------- |:-------------:| -----|
+| Python | [assignment-8](./python/assignment8.md) | Feb 21, 2024 |
 | Python | [assignment-7](./python/assignment7.md) | Feb 20, 2024 |
 | Python | [assignment-6](./python/assignment6.md) | Feb 19, 2024 |
 | Python | [assignment-5](./python/assignment5.md) | Feb 16, 2024 |
