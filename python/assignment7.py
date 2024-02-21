@@ -194,7 +194,7 @@ def re_module_functions():
 
     # 5. Compile a regular expression pattern for reusing
     pattern = re.compile(r'\b\d{3}-\d{2}-\d{4}\b')
-    result = pattern.search("My SSN is 123-45-6789")
+    result = pattern.search("My SSN no is 123-45-6789")
     if result:
         print("SSN found:", result.group())
     else:
@@ -366,50 +366,4 @@ read_users()
 
 # Close connection
 conn.close()
-
-#NoSQL
-
-from pymongo import MongoClient
-
-# Connect to the MongoDB server
-client = MongoClient('localhost', 27017)
-
-# Access the database (if it doesn't exist, MongoDB will create it)
-db = client['crud_operations']
-
-# Access the collection (if it doesn't exist, MongoDB will create it)
-users_collection = db['users']
-
-def create_user(name, email):
-    user_data = {'name': name, 'email': email}
-    result = users_collection.insert_one(user_data)
-    return result.inserted_id
-
-def read_users():
-    users = users_collection.find()
-    for user in users:
-        print(user)
-
-def update_user(user_id, new_name, new_email):
-    query = {'_id': user_id}
-    new_values = {'$set': {'name': new_name, 'email': new_email}}
-    users_collection.update_one(query, new_values)
-
-def delete_user(user_id):
-    query = {'_id': user_id}
-    users_collection.delete_one(query)
-
-# Example usage
-user1_id = create_user('Kaustubh Pandey', 'kaustubh@gmail.com')
-user2_id = create_user('Raj', 'raj@gmail.com')
-read_users()
-
-update_user(user1_id, 'Yash', 'yash@gmail.com')
-read_users()
-
-delete_user(user2_id)
-read_users()
-
-# Close the MongoDB connection
-client.close()
 
