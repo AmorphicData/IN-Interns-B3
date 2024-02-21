@@ -1,0 +1,7 @@
+[
+  {"name": "John", "age": 25, "email": "john@example.com", "address": "123 Main St", "grades": [45, 78]},
+  {"name": "Alice", "age": 22, "email": "alice@example.com", "address": "456 Oak St", "grades": [56, 87]},
+  {"name": "Bob", "age": 28, "email": "bob@example.com", "address": "789 Pine St", "grades": [96, 32]},
+  {"name": "Eve", "age": 30, "email": "eve@example.com", "address": "101 Elm St", "grades": [70, 67]},
+  {"name": "Charlie", "age": 35, "email": "charlie@example.com", "address": "202 Birch St", "grades": [12, 45]}
+]
