@@ -1,0 +1,12 @@
+[
+    {"username": "JohnDoe", "email": "john.doe@email.com", "age": 25, "city": "New York", "active": true},
+    {"username": "AliceSmith", "age": "thirty", "city": "London", "active": false},
+    {"username": "BobJohnson", "email": "bob.johnson@email.com", "city": "Paris", "active": true},
+    {"username": "JaneDoe", "email": "jane.doe@email.com", "age": 28, "active": true},
+    {"username": "CharlieBrown", "email": "charlie.brown@email.com", "age": 35, "city": "Tokyo", "active": "yes"},
+    {"email": "eve.taylor@email.com", "age": 27, "city": "Sydney", "active": true},
+    {"username": "SamJones", "email": "sam.jones@email.com", "age": 29, "city": "Toronto", "active": false, "extra_key": "extra_value"},
+    {"username": "GraceWang", "email": "grace.wang@email.com", "age": 32, "active": true},
+    {"username": "DavidMiller", "email": "david.miller@email.com", "age": 26, "city": "Moscow", "active": true},
+    {"username": "SophieClark", "email": "sophie.clark@email.com", "age": "thirty-one", "city": "Rio de Janeiro", "active": false}
+]
