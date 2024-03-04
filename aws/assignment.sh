@@ -7,19 +7,21 @@ fi
 
 aws --version
 
-if ! aws configure get profile.${USER} &> /dev/null; then
+read -p "Name: " name
+
+if ! aws configure get profile.${name} &> /dev/null; then
     echo "Error: AWS profile with the name is not set."
     exit 1
 fi
 
 
 echo "Listing all IAM Roles:"
-aws iam list-roles --profile ${USER} | jq -r '.Roles[].RoleName'
+aws iam list-roles --profile ${name} | jq -r '.Roles[].RoleName'
 
 
 echo "IAM Roles starting with 'AWS':"
-aws iam list-roles --profile ${USER} | jq -r '.Roles[].RoleName' | grep "^AWS"
+aws iam list-roles --profile ${name} | jq -r '.Roles[].RoleName' | grep "^AWS"
 
 
 echo "S3 bucket names:"
-aws s3api list-buckets --query 'Buckets[].Name' --profile ${USER} | jq -r '.[]'
+aws s3api list-buckets --query 'Buckets[].Name' --profile ${name} | jq -r '.[]'
