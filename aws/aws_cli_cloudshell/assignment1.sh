@@ -8,9 +8,9 @@ fi
 echo "AWS CLI version:"
 aws --version
 
-read -p “Enter your name:" user
+read -p "Enter your name:" user
 
-if ! aws configure get profile.$user &> /dev/null; then
+if ! aws configure get aws_access_key_id --profile $user &> /dev/null; then
     echo "Error: AWS profile with the name is not set."
     exit 1
 fi
