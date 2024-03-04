@@ -1,0 +1,30 @@
+What is an API
+
+AWS has several API behind the scenes which actually does the job for us.
+There are multiple way to interact with API - User Interface, libraries - SDKs and CLI
+
+Install AWS CLI - brew install awscli
+aws help
+
+Connect to AWS Account and Export the keys
+Run a small command:
+aws ec2 describe-instances
+
+Discussion over aws config and aws credentials
+
+Why config and creds over setting default? - multiple aws accounts at same time
+
+Set the profile and then run the aws commands
+
+Run multiple commands with usage of profile and region
+
+Multiple outputs - text and json
+
+Filter the data using query.
+
+https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html
+
+What if you don’t have your laptop or AWS cli is not configured or not working - we can use aws cloudshell - It is mimic of your local terminal with basic things like python, aws cli etc.
+
+Connect to cloudshell, and run aws commands,
+Run python commands, upload a file and download a file
