@@ -9,7 +9,7 @@ aws --version
 
 read -p "Name: " name
 
-if ! aws configure get profile.${name} &> /dev/null; then
+if ! aws configure get aws_access_key_id --profile ${name} &> /dev/null; then
     echo "Error: AWS profile with the name is not set."
     exit 1
 fi
