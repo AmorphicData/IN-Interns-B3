@@ -21,6 +21,6 @@ aws iam list-roles --profile $name --query "Roles[].RoleName" --output text
 echo "IAM Roles starting with 'AWS':"                      #List of all IAM Roles starting with 'AWS'
 aws iam list-roles --profile $name --query "Roles[?starts_with(RoleName, 'AWS')].RoleName" --output text
 
-aws s3api list-buckets --profile $profile_name --query "Buckets[*].Name" --output text
+aws s3api list-buckets --profile $name --query "Buckets[*].Name" --output text
 
 
