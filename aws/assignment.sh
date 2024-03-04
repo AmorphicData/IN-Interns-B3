@@ -8,7 +8,7 @@ fi
 aws --version
 
 if ! aws configure get profile.${USER} &> /dev/null; then
-    echo "Error: AWS profile with your name is not set. Please configure it and try again."
+    echo "Error: AWS profile with the name is not set."
     exit 1
 fi
 
