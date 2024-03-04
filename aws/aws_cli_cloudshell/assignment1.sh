@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 if !aws --version &> /dev/null;then
     echo "AWS CLI is not installed. Please Install it Before Running"
