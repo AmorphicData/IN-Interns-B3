@@ -8,6 +8,7 @@ Submissions of project work, assignments, design and development material must b
 
 | Topic | Instructions | Last Updated |
 | ------------- |:-------------:| -----|
+| AWS / IAM | [IAM assignment](./aws/IAM/assignment-1.md) | Mar 08, 2024 |
 | Linux & Git | [pre-commit-hook](./git/assignment-3.md) | Feb 14, 2024 |
 | Linux & Git | [auto-backup-script](./git/assignment-2.md) | Feb 14, 2024 |
 | Python | [assignment-3](./python/assignment3.md) | Feb 14, 2024 |
