@@ -8,6 +8,7 @@ Submissions of project work, assignments, design and development material must b
 
 | Topic | Instructions | Last Updated |
 | ------------- |:-------------:| -----|
+| AWS / S3 | [S3 assignment](./aws/s3/assignment-1.md) | Mar 08, 2024 |
 | AWS / IAM | [IAM assignment](./aws/IAM/assignment-1.md) | Mar 08, 2024 |
 | Python | [assignment-8](./python/assignment8.md) | Feb 21, 2024 |
 | Python | [assignment-7](./python/assignment7.md) | Feb 20, 2024 |
