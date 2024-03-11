@@ -1,0 +1,174 @@
+[{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Sid":"1",
+        "Effect":"Allow",
+        "Action":["s3:GetObject","s3:PutObject"
+        ],
+        "Resource":"arn:aws:s3:::sample-bucket/*",
+        "Condition":{
+            "StringEquals":{
+                "aws:ResourceTag/InstanceId":"sample-id"
+            }
+        }
+       
+    }
+]
+
+},
+{
+    "Version" : "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "2",
+            "Effect": "Deny",
+            "Action": "ec2:*",
+            "NotAction": "ec2:RunInstances",
+            "Resource": "*"
+        }
+    ]
+},{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Sid":"3",
+        "Effect":"Deny",
+        "Action":["*"
+        ],
+        "Resource":"*",
+        "Condition":{
+            "StringNotEquals":{
+                "aws:RequestedRegion":"us-east-1"
+            }
+        }
+       
+    }
+]
+ 
+},
+{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Sid":"4",
+        "Effect":"Deny",
+        "Action":["*"
+        ],
+        "Resource":"*",
+        "Condition":{
+            "StringEquals":{
+                "aws:ResourceTag/name":""
+            }
+        }
+       
+    }
+]
+   
+},
+{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Sid":"5",
+        "Effect":"Allow",
+        "Action":["ec2:StartInstance","ec2:StopInstance"
+        ],
+        "Resource":"arn:aws:ec2:instances/*",
+        "Condition":{
+            "StringEquals":{
+                "aws:ResourceTag/tag-key":"Environment",
+                "aws:ResourceTag/tag-value":"Development"
+            }
+        }
+       
+    }
+]
+},{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Sid":"6",
+        "Effect":"Allow",
+        "Principal":"arn:aws:iam::***:user/jd",
+        "Action":["s3:GetObject","s3:ListObject"
+        ],
+        "NotAction":["s3:PutObject",
+        "s3:DeleteObject",
+        "s3:PutObjectAcl",
+        "s3:PutObjectVersionAcl",
+        "s3:DeleteObjectVersion",
+        "s3:DeleteObjectTagging"],
+        "Resource": "arn:aws:s3:::example-bucket/*"
+       
+    }
+]
+},{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Sid":"7",
+        "Effect":"Allow",
+        "Action":["ec2:TerminateInstance"
+        ],
+        "Resource":"arn:aws:ec2:instances/*",
+        "Condition":{
+            "NotDateGreaterThan": {
+                "aws:CurrentTime": "---------"
+            },
+            "NotDateLessThan": {
+                "aws:CurrentTime": "----------"
+            }
+        }
+       
+    }
+] 
+},
+{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Sid":"8",
+        "Effect":"Allow",
+        "Action":["*"
+        ],
+        "Resource":"*",
+        "Condition":{
+            "IpAddress":{
+                "aws:SourceIp":"****"
+            }
+        }
+       
+    }
+]
+},
+{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Sid":"9",
+        "Effect":"Allow",
+        "Action":"sts:AssumeRole",
+        "Condition":{
+            "Bool":{
+                "aws:MultiFactorAuthPresent": "true"
+            }
+        }
+       
+    }
+]
+},
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::ACCOUNT-ID:root"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::example-bucket/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "SOURCE-ACCOUNT-ID"
+                }
+            }
+        }
+    ]
+}
+]
+
+
+			
