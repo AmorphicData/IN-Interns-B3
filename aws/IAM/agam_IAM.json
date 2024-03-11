@@ -1,0 +1,222 @@
+[{
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+            "Sid":"Q1",
+            "Effect":"Allow",
+            "Action":[
+                "s3.getObject",
+                "s3.PutObject",
+                "s3.DeleteObject"
+            ],
+            "Resource":"arn:aws:s3:::bucket_name/*",
+            "Condition":{
+                "StringEquals":{
+                    "aws:SourceInstanceARN": "arn:aws:ec2:region:account-id:instance/instance-id"
+                }
+            }
+        }
+    ]
+},
+
+
+
+
+{
+    "Version" : "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Q2",
+            "Effect": "Deny",
+            "Action": "ec2:*",
+            "NotAction": "ec2:RunInstances",
+            "Resource": "*"
+        }
+    ]
+},
+
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"Q3",
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:RequestedRegion": "us-east-1"
+                }
+            }
+        }
+    ]
+},
+
+
+
+{
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+            "Sid":"Q4",
+            "Effect":"Deny",
+            "Action":"*",
+            "Resource":"*",
+            "Condition":{
+                "Null":{
+                    "aws:RequestTag/tag-key": "true"
+                }
+            }
+        }
+    ]
+},
+
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"Q5",
+            "Effect" : "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/Environment": "Development"
+                }
+            }
+        }
+    ]
+},
+
+
+{
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+            "Sid":"Q6",
+            "Effect":"Allow",
+            "Action":[
+                "s3.getObject",
+                "s3.ListBucket"
+            ],
+            "Resource":[
+                "arn:aws:s3:::my_bucket",
+                "arn:aws:s3:::my_bucket/*"
+            ],
+            "Principal": {
+                "AWS": "arn:aws:ec2:region:account-id:instance/instance-id"
+            }
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:PutObjectAcl",
+                "s3:PutObjectVersionAcl",
+                "s3:DeleteObjectVersion",
+                "s3:DeleteObjectTagging",
+                "s3:PutObjectTagging",
+                "s3:ReplicateObject",
+                "s3:ReplicateDelete",
+                "s3:RestoreObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::your-bucket-name",
+                "arn:aws:s3:::your-bucket-name/*"
+            ],
+            "Principal": {
+                "AWS": "arn:aws:ec2:region:account-id:instance/instance-id"
+            }
+        }
+    ]
+
+},
+
+
+{
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+            "Sid":"Q7",
+            "Effect":"Allow",
+            "Action":"ec2:TerminateInstances",
+            "Condition":{
+                "NotDateGreaterThan": {
+                    "aws:CurrentTime": "---------"
+                },
+                "NotDateLessThan": {
+                    "aws:CurrentTime": "----------"
+                }
+            }
+        }
+    ]
+},
+
+
+{
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+            "Sid":"Q8",
+            "Effect":"Allow",
+            "Action":"*",
+            "Resource":"*",
+            "Condition":{
+                "IpAddress":{
+                    "aws:SourceIp":"ip address"
+                }
+            }
+        }
+    ]
+},
+
+
+
+
+{
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+            "Sid":"Q9",
+            "Effect":"Allow",
+            "Action":"sts:AssumeRole",
+            "Principal":{
+                "AWS":"*"
+            },
+            "Condition":{
+                "Bool":{
+                    "aws.MultiFactorAuthPresent":"true"
+                }
+            }
+        }
+    ]
+},
+
+
+{
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+            "Sid":"Q10",
+            "Effect":"Allow",
+            "Principal":{
+             "AWS":"arn:aws:iam::ACCOUNT_ID_OF_TRUSTED_ACCOUNT:root"   
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::example-bucket/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "TRUSTED_ACCOUNT_ID"
+                }
+            }
+    }
+    ]
+}]
