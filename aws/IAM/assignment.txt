@@ -1,0 +1,245 @@
+IAM - ASSIGNMENT
+
+
+1.Restrict S3 Bucket Access to Specific EC2 Instance:
+Design an IAM policy that allows read and write access to a specific S3 bucket only from a designated EC2 instance. Ensure that no other instances can access the S3 bucket.
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::bucket-name/*",
+        "arn:aws:s3:::bucket-name"
+      ],
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "ec2-instance-public-ip"
+        }
+      }
+    }
+  ]
+}
+
+
+2.Deny All EC2 Actions Except Run Instance:
+Create an IAM policy statement that denies all actions on EC2 except for the "RunInstances" action. Ensure that the policy allows users to launch EC2 instances while restricting other actions.
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ec2:RunInstances",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Deny",
+      "Action": "ec2:*",
+      "Resource": "*"
+    }
+  ]
+}
+
+3.Deny Actions Outside of us-east-1 Region:
+Craft an IAM policy statement that denies any AWS actions if they are not performed within the "us-east-1" region. Ensure the policy is effective in preventing users from executing actions in other regions.
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "NotAction": "aws-portal:ViewAccount",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": "us-east-1"
+        }
+      }
+    }
+  ]
+}
+
+4.Enforce Tagging for Resources:
+Develop an IAM policy statement that enforces users to provide at least one tag for each resource they create across all AWS services. The policy should deny resource creation if the required tag is not provided.
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/RequiredTagKey": "true"
+        }
+      }
+    }
+  ]
+}
+
+5.Allow Limited Access to EC2 Instances Based on Tags:
+Create an IAM policy that allows users to perform specific actions on EC2 instances based on tags. For example, grant users the ability to start and stop instances with a "Environment: Development" tag.
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:StartInstances",
+        "ec2:StopInstances"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/Environment": "Development"
+        }
+      }
+    }
+  ]
+}
+
+6. Grant S3 Read-Only Access for a Specific IAM User:
+Design an IAM policy that grants read-only access to a specific S3 bucket for a particular IAM user. Ensure that the user cannot perform any write or delete actions on the specified S3 bucket.
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::bucket-name",
+        "arn:aws:s3:::bucket-name/*"
+      ]
+    },
+    {
+      "Effect": "Deny",
+      "Action": [
+        "s3:PutObject",
+        "s3:DeleteObject",
+         "s3:DeleteBucket",
+         ],
+      "Resource": [
+       "arn:aws:s3:::bucket-name",
+        "arn:aws:s3:::bucket-name/*"
+      ]
+    }
+  ]
+}
+
+7.Implement Time-Based Access Control:
+Develop an IAM policy that allows certain actions only during specific time windows. For instance, permit users to terminate EC2 instances only during non-business hours.
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ec2:TerminateInstances",
+      "Resource": "*",
+      "Condition": {
+        "DateLessThan": {
+          "aws:CurrentTime": "T08:00:00Z"
+        },
+        "DateGreaterThan": {
+          "aws:CurrentTime": "T17:00:00Z"
+        }
+      }
+    },
+    {
+      "Effect": "Deny",
+      "Action": "ec2:TerminateInstances",
+      "Resource": "*"
+    }
+  ]
+}
+
+8.Conditional Access Based on IP Address:
+Craft an IAM policy statement that allows or denies access to AWS resources based on the IP address range of the requesting entity. For example, permit access only from a corporate network.
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "NotIpAddress": {
+          "aws:SourceIp": "192.168.1.0/24"
+        }
+      }
+    }
+  ]
+}
+
+
+9.Role Assumption with MFA:
+Create an IAM role with a trust relationship that allows users to assume the role only if multi-factor authentication (MFA) is enabled. Ensure that the policy requires MFA for successful role assumption.
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+       "AWS": "arn:aws:iam::account-id:root"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "Bool": {
+          "aws:MultiFactorAuthPresent": "true"
+        }
+      }
+    }
+  ]
+}
+
+
+10.IAM Policy for Cross-Account Access:
+Design an IAM policy statement that allows cross-account access to specific resources. Specify the conditions under which the cross-account access is permitted.
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::bucket-name",
+        "arn:aws:s3:::bucket-name/*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalAccount": "account-id"
+        }
+      }
+    }
+  ]
+}
+
+
+
+
+
+
+
