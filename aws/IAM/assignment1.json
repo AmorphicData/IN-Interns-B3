@@ -1,0 +1,213 @@
+
+1. Restrict S3 Bucket Access to Specific EC2 Instance:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"1",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::bucket",
+                "arn:aws:s3:::bucket/*"
+            ],
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "ec2-instance-ip"
+                }
+            }
+        }
+    ]
+}
+
+
+2. Deny All EC2 Actions Except Run Instance:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"2",
+            "Effect": "Deny",
+            "Action": "ec2:*",
+            "Resource": "*",
+            "NotAction": "ec2:RunInstances"
+        }
+    ]
+}
+
+
+3. Deny Actions Outside of us-east-1 Region:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"3",
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:RequestedRegion": "us-east-1"
+                }
+            }
+        }
+    ]
+}
+
+
+4. Enforce Tagging for Resources:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"4",
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "aws:RequestTag/tag-key": "true"
+                }
+            }
+        }
+    ]
+}
+
+
+5. Allow Limited Access to EC2 Instances Based on Tags:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"5",
+            "Effect": "Allow",
+            "Action": "ec2:StartInstances",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/Environment": "Development"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:StopInstances",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/Environment": "Development"
+                }
+            }
+        }
+    ]
+}
+
+
+6. Grant S3 Read-Only Access for a Specific IAM User:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"6",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::aws-id:user"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:ListObject"
+            ],
+            "Resource": "arn:aws:s3:::bucket/*"
+        }
+    ]
+}
+
+
+
+7. Implement Time-Based Access Control:**
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"7",
+            "Effect": "Allow",
+            "Action": "ec2:*",
+            "Resource": "*",
+            "Condition": {
+                "DateGreaterThan": {
+                    "aws:CurrentTime": ""
+                },
+                "DateLessThan": {
+                    "aws:CurrentTime": ""
+                }
+            }
+        }
+    ]
+}
+
+
+8. Conditional Access Based on IP Address:**
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"8",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::bucket/*",
+                "arn:aws:s3:::bucket"
+            ],
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "ip"
+                }
+            }
+        }
+    ]
+}
+
+
+9. Role Assumption with MFA:
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"9",
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::account-id:role/role-name",
+            "Condition": {
+                "Bool": {
+                    "aws:MultiFactorAuthPresent": true
+                }
+            }
+        }
+    ]
+}
+
+
+10. IAM Policy for Cross-Account Access:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"10",ˇ
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::cross-account-bucket/*",
+            "Principal": {
+                "AWS": "arn:aws:iam::cross-account-id:root"
+            }
+        }
+    ]
+}
