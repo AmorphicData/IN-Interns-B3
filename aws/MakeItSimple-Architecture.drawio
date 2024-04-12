@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net" modified="2024-04-11T10:52:18.952Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="YvhaM_9vLLvp-yJfr094" version="24.2.3" type="device">
+  <diagram name="Page-1" id="h7R0O4SjHeRXCh7KH_6y">
+    <mxGraphModel dx="1193" dy="740" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-1" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" parent="1" vertex="1">
+          <mxGeometry x="250" y="420" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-2" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" parent="1" vertex="1">
+          <mxGeometry x="400" y="280" width="69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-3" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" parent="1" vertex="1">
+          <mxGeometry x="590" y="140" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-4" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/laptop_client.svg;" parent="1" vertex="1">
+          <mxGeometry x="80" y="550" width="85.5" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.877;exitY=0.011;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1" source="vivnUYLVOz9Pv5eMrnfc-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="537.18" as="sourcePoint" />
+            <mxPoint x="250" y="469.9987919463087" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-6" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="420" as="sourcePoint" />
+            <mxPoint x="400" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-7" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="280" as="sourcePoint" />
+            <mxPoint x="580" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-8" value="Shorten a URL" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="60" y="480" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-9" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;POST request is generated&lt;/font&gt;&lt;div style=&quot;font-size: 14px;&quot;&gt;URL is passed in event body&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="180" y="330" width="110" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-10" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;LAMBDA generates a &lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;short&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;URL&lt;/font&gt;&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;using alphabets and digits&lt;/font&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="284" y="202" width="130" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-11" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;1.First table maps short url to long url&lt;/font&gt;&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;2.Second table maps long url to short url&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="450" y="50" width="190" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-20" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="245.5" y="498" as="sourcePoint" />
+            <mxPoint x="165.5" y="568" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vivnUYLVOz9Pv5eMrnfc-21" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="414" y="352" as="sourcePoint" />
+            <mxPoint x="330" y="430" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="393" y="372" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9HVBAR_-KkJLB2WTDH4u-1" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="210" as="sourcePoint" />
+            <mxPoint x="470" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9HVBAR_-KkJLB2WTDH4u-2" value="" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="510" y="330" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9HVBAR_-KkJLB2WTDH4u-7" value="Lambda fetches the corresponding long url" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="500" y="250" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9HVBAR_-KkJLB2WTDH4u-8" value="Short-url is passed as the query string parameter through GET request" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="370" y="400" width="190" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="9HVBAR_-KkJLB2WTDH4u-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="170" y="56" width="520" height="454" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
